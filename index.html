@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#2196F3">
+    <title>icodepixels - robert jason roberts portfolio</title>
+
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+    <!--<link href="min/custom-min.css" type="text/css" rel="stylesheet" >-->
+    <link href="css/style.css" type="text/css" rel="stylesheet" >
+    <link href="source/jquery.fancybox.css" type="text/css" rel="stylesheet">
+</head>
+<body id="top" class="scrollspy">
+
+<!-- Pre Loader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
+
+<!--Navigation-->
+ <div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="#" id="logo-container" class="brand-logo">icodepixels</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#intro">Service</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#intro">Service</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--Hero-->
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h1 class="text_h center header cd-headline letters type">
+            <span>I love</span>
+            <span class="cd-words-wrapper waiting">
+                <b class="is-visible">creating</b>
+                <b>designing</b>
+                <b>developing</b>
+            </span>
+        </h1>
+    </div>
+</div>
+
+<!--Intro and service-->
+<div id="intro" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            <div  class="col s12">
+                <h3 class="center header text_h2">I am a web developer currently living in Denver, Colorado. I enjoy building everything from small business sites to rich interactive web apps. If you are a business seeking a web presence or an employer looking to hire, you can get in touch with me <a href="#contact">here</a>.</h3>
+
+            </div>
+
+            <div  class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-action-settings-ethernet"></i>
+                    <h5 class="promo-caption">Coder</h5>
+                    <p class="light center">Front End Developer who focuses on writing clean, elegant and efficient code.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-action-view-quilt"></i>
+                    <h5 class="promo-caption">Designer</h5>
+                    <p class="light center">UI/UX Designer with passion for designing beautiful and functional user experiences.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-social-group"></i>
+                    <h5 class="promo-caption">User Experience Focused</h5>
+                    <p class="light center">It is essential that content be useful and the presentation be usable. After all, it’s the experience that brings users to a web site.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---------------------------------
+--------------WORK
+---------------------------------->
+<div class="section scrollspy" id="work" ng-controller="controller" ng-cloak>
+    <div class="container">
+        <h2 class="header text_b">Work </h2>
+        <div class="row">
+            <div class="{{portfolio.class}} col-lg-4 col-sm-6" ng-repeat="portfolio in portfolioList" ng-cloak>
+                <div class="{{portfolio.class}} col s12 m4 l4" ng-cloak>
+                    <div class="{{portfolio.class}} card" ng-cloak>
+                        <div class="{{portfolio.class}} card-image waves-effect waves-block waves-light" ng-cloak>
+                            <img class="activator" ng-src="img/{{portfolio.image}}" ng-cloak>
+                        </div>
+                        <div class="{{portfolio.class}} card-content">
+                            <span class="{{portfolio.class}} card-title activator grey-text text-darken-4">{{portfolio.company}} <i class="{{portfolio.class}} mdi-navigation-more-vert right" ng-cloak></i></span>
+                            <p class="title">{{portfolio.title}}</p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4 reveal-card-title">{{portfolio.company}}
+                                <i class="mdi-navigation-close right"></i>
+                            </span>
+                            <p ng-cloak>{{portfolio.title}}</p>
+                            <p ng-cloak>{{portfolio.description}}</p>
+                            <div ng-repeat="links in portfolio.links" ng-cloak>
+                                <a class="portfolio-link" ng-href="{{links.link}}" target="_blank" ng-cloak>{{links.title}}</a>
+                            </div>
+                            <div ng-repeat="photos in portfolio.photos" ng-cloak>
+                                <a href="img/{{photos.image}}" class="fancybox" rel="{{portfolio.sectionID}}" ng-cloak>
+                                    <img class="portfolio-image" ng-src="img/{{photos.image}}" ng-cloak>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Parallax-->
+<div class="parallax-container">
+    <div class="parallax"><img src="img/parallax1.png"></div>
+</div>
+
+<!--Team-->
+<div class="section scrollspy" id="team">
+    <div class="container">
+        <h2 class="header text_b"> About Me </h2>
+        <div class="row">
+            <div class="col s12 m3">
+                <div class="card card-avatar">
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/avatar1.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Robert Jason Roberts <br/>
+                            <small><em><a class="red-text text-darken-1">Developer & UI/UX Designer</a></em></small></span>
+                        <p>
+                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/mad303CEO">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://twitter.com/icodepixels">
+                                <i class="fa fa-twitter-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/rjasonroberts">
+                                <i class="fa fa-linkedin-square"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<footer id="contact" class="page-footer default_color scrollspy">
+    <div class="container">  
+        <div class="row">
+            <div class="col l10 s12">
+                <h5 class="white-text">Contact</h5>
+                <form action="includes/mailer.php" id="contact-form" class="form-horizontal col s12" role="form" method="post">
+
+                    <div class="input-field col s6" id="name-field">
+                        <div class="col-lg-10">
+                            <i class="mdi-action-account-circle prefix white-text"></i>
+                            <input type="text" class="white-text" id="form-name" name="form-name" required>
+                            <label for="form-name" class="col-lg-2 control-label">Name</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group input-field col s6" id="email-field">
+                        <div class="col-lg-10">
+                            <i class="mdi-communication-email prefix white-text"></i>
+                            <input type="email" class="white-text" id="form-email" name="form-email" required>
+                            <label for="form-email" class="col-lg-2 control-label">Email</label>
+                        </div>
+                    </div>
+                    <div class="form-group input-field col s6" id="subject-field">
+                        <div class="col-lg-10">
+                            <i class="mdi-editor-mode-edit prefix white-text"></i>
+                            <input type="text" class="white-text" id="form-subject" name="form-subject" required>
+                            <label for="form-subject" class="col-lg-2 control-label">Subject</label>
+                        </div>
+                    </div>
+                    <div class="form-group input-field col s6" id="message-field">
+                        <div class="col-lg-10">
+                            <i class="mdi-communication-comment prefix white-text"></i>
+                            <textarea class="materialize-textarea white-text" rows="3" id="form-message" name="form-message" required></textarea>
+                            <label for="form-message" class="col-lg-2 control-label">Message</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-default">Send</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="form-messages"></div>
+            </div>
+
+            <div class="col l2 s12">
+                <h5 class="white-text">Social</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="http://www.dreamstime.com/rjasonroberts_info" target="_blank">
+                            <i class="small fa fa-camera white-text"></i> Dreamtime
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.facebook.com/mad303CEO" target="_blank">
+                            <i class="small fa fa-facebook-square white-text"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.linkedin.com/in/rjasonroberts" target="_blank">
+                            <i class="small fa fa-linkedin-square white-text"></i> Linkedin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright default_color">
+        <div class="container">
+
+        </div>
+    </div>
+</footer>
+
+    <!--Scripts-->
+    <script src="lib/jquery-1.9.0.min.js"></script>
+    <script src="min/plugin-min.js"></script>
+    <script src="min/custom-min.js"></script>
+    <script src="js/mailer.js"></script>
+    <!---MVC Framework -->
+    <script src="lib/angular.min.js"></script>
+    <script src="js/work/main.js"></script>
+    <script src="source/jquery.fancybox.js"></script>
+    <script src="js/fancybox-init.js"></script>
+
+
+    <!---Analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20957072-2']);
+      _gaq.push(['_setDomainName', 'icodepixels.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    </body>
+</html>
